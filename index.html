@@ -1,4 +1,4 @@
-sese<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@ sese<!DOCTYPE html>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-main); }
         body { background-color: var(--bg-color); color: var(--text-light); }
 
-        /* HEADER SIMPLIFICADO */
+        /* HEADER */
         header {
             background-color: rgba(15, 15, 15, 0.98);
             padding: 20px 5%;
@@ -41,14 +41,14 @@ sese<!DOCTYPE html>
         nav a:hover { color: var(--primary-red); }
 
         /* LAYOUT */
-        .page-section { padding: 100px 5% 50px 5%; min-height: 100vh; display: none; animation: fadeIn 0.5s ease; }
+        .page-section { padding: 120px 5% 50px 5%; min-height: 100vh; display: none; animation: fadeIn 0.5s ease; }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* HERO */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://lh3.googleusercontent.com/gg/AIJ2gl_4TjcbACMMOBR8ThqnDWuJ40vADZAPPIE702zd9Y1Ff6neqShHCeMVZw6coODAtu8owgKA_G1qFEm1A3kFdmbmS7Jh_gJd5qN-fb_3NEbOAXlFNvePJBHqzqCO0L23d96DpqM0IfykeQniHj_hzcNx7vJf__oo9qacOJ3um96UedOS9JJ1=s1024-rj-mp2');
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1555680202-c86f0e12f0fe?q=80&w=1470&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -56,27 +56,13 @@ sese<!DOCTYPE html>
             justify-content: center;
             align-items: center;
             text-align: center;
-            margin-top: -80px;
+            margin-bottom: 40px;
         }
-        .hero h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; }
         .hero span { color: var(--primary-red); }
-        
-        .btn-cta {
-            padding: 15px 50px;
-            background-color: var(--primary-red);
-            color: white;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 4px;
-        }
-        .btn-cta:hover { background-color: #b71c1c; box-shadow: 0 0 25px rgba(211, 47, 47, 0.5); }
 
         /* GRID DE PRODUTOS */
-        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; text-transform: uppercase; border-bottom: 2px solid var(--accent-green); display: inline-block; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; text-transform: uppercase; border-bottom: 2px solid var(--primary-red); display: inline-block; }
         
         .products-grid {
             display: grid;
@@ -90,17 +76,17 @@ sese<!DOCTYPE html>
             transition: 0.3s;
             display: flex;
             flex-direction: column;
+            border-radius: 5px;
+            overflow: hidden;
         }
         .product-card:hover { transform: translateY(-5px); border-color: var(--primary-red); }
 
-        .product-img { height: 300px; overflow: hidden; }
+        .product-img { height: 280px; overflow: hidden; background: #000; }
         .product-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .product-card:hover .product-img img { transform: scale(1.1); }
 
         .product-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
-        .product-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
-        .product-desc { color: #888; font-size: 0.9rem; margin-bottom: 15px; flex-grow: 1; }
-        
+        .product-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; height: 45px; overflow: hidden; }
+        .product-desc { color: #888; font-size: 0.85rem; margin-bottom: 15px; flex-grow: 1; }
         .product-price { color: var(--accent-green); font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; }
 
         .btn-buy {
@@ -118,11 +104,10 @@ sese<!DOCTYPE html>
             align-items: center;
             gap: 10px;
             font-size: 1rem;
-            text-decoration: none; /* Caso use tag A */
+            text-decoration: none;
         }
         .btn-buy:hover { background-color: #fff; color: #000; }
 
-        /* FOOTER */
         footer { background-color: #050505; padding: 40px 5%; text-align: center; margin-top: 50px; border-top: 1px solid #222; }
     </style>
 </head>
@@ -134,7 +119,6 @@ sese<!DOCTYPE html>
             <ul>
                 <li><a onclick="showPage('home')">Início</a></li>
                 <li><a onclick="showPage('shop')">Catálogo</a></li>
-                <li><a onclick="window.scrollTo(0, document.body.scrollHeight)">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -143,13 +127,11 @@ sese<!DOCTYPE html>
         <div class="hero">
             <h1>Exclusividade <br><span>Imediata</span></h1>
             <p style="color: #ccc; margin-bottom: 30px;">Edições limitadas. Compra direta.</p>
-            <button class="btn-cta" onclick="showPage('shop')">Ver Ofertas</button>
+            <button class="btn-cta" onclick="showPage('shop')" style="padding: 15px 30px; background: var(--primary-red); border: none; color: white; font-weight: bold; cursor: pointer;">Ver Ofertas</button>
         </div>
         
-        <div style="margin-top: 60px;">
-            <center><h2 class="section-title">Em Alta</h2></center>
-            <div class="products-grid" id="featured-grid"></div>
-        </div>
+        <center><h2 class="section-title">Em Alta</h2></center>
+        <div class="products-grid" id="featured-grid"></div>
     </div>
 
     <div id="shop" class="page-section">
@@ -163,29 +145,58 @@ sese<!DOCTYPE html>
     </footer>
 
     <script>
-        // --- BANCO DE DADOS ---
-        // Adicione os links reais de checkout ou página de produto no campo 'link'
+        // --- BANCO DE DADOS (MANTIDO SEUS DADOS) ---
         const products = [
-            { id: 1, name: "Sua Renda em casa 2.0", desc: "sua renda extra ou seu dinheiro de volta.", price: 97.00, img: "https://static-media.hotmart.com/Z-yBzRrdk7T4iY3ZVvpRRfX9e58=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/0af9a2b2-eed4-42ab-8494-92e12588ce31/croppedimage.png", link: "https://pay.kiwify.com.br/sUqnazH?afid=lrlpYhjU" },
-            { id: 2, name: "Kit 2 Câmera Segurança Prova D'água Infravermelho Lâmpada Externa 360 Sem Fio Wifi 2.4G G4", desc: "câmera lâmpada .", price: 60.99, img: link:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp_gMUpLoZXT4PDWWWxZ9Ahvo9ou21f1ZEixnKvYMJYA&s=10ee.com.br/806RnCGEnX" },
-            { id: 3, name: "Relógio Chrono Green", desc: "À prova d'água 50m, vidro safira.", price: 899.00, img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", link: "https://mercadolivre.com/sec/1fnTmoz" },
-            { id: 4, name: "Óculos Dark Vision", desc: "Proteção UV400, armação acetato.", price: 149.90, img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80", link: "https://mercadolivre.com/sec/1WzZ6QN" },
-            { id: 5, name: "Kit Streetwear", desc: "Camiseta Oversized + Boné 5Panel.", price: 129.90, img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80", link: "" },
-            { id: 6, name: "Mochila Tech Pro", desc: "Compartimento para notebook 15', impermeável.", price: 329.90, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", link: "https://mercadolivre.com/sec/1Km8sDx" },
- [
-  {
-    "id": 1,
-    "nome": "Produto Exemplo",
-    "preco": 50.00,
-    "imagem": "link-da-imagem.jpg"
-  },
-  {
-    "id": 2,
-    "nome": "Segundo Produto",
-    "preco": 80.00,
-    "imagem": "link-da-imagem.jpg"
-  }
-]
+            { 
+                id: 1, 
+                name: "Sua Renda em casa 2.0", 
+                desc: "sua renda extra ou seu dinheiro de volta.", 
+                price: 97.00, 
+                img: "https://static-media.hotmart.com/Z-yBzRrdk7T4iY3ZVvpRRfX9e58=/300x300/smart/filters:format(webp):background_color(white)/hotmart/product_pictures/0af9a2b2-eed4-42ab-8494-92e12588ce31/croppedimage.png", 
+                link: "https://pay.kiwify.com.br/sUqnazH?afid=lrlpYhjU" 
+            },
+            { 
+                id: 2, 
+                name: "Kit 2 Câmera Segurança Prova D'água", 
+                desc: "Infravermelho Lâmpada Externa 360 Sem Fio Wifi 2.4G G4", 
+                price: 60.99, 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp_gMUpLoZXT4PDWWWxZ9Ahvo9ou21f1ZEixnKvYMJYA&s", 
+                link: "https://mercadolivre.com.br" 
+            },
+            { 
+                id: 3, 
+                name: "Relógio Chrono Green", 
+                desc: "À prova d'água 50m, vidro safira.", 
+                price: 899.00, 
+                img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", 
+                link: "https://mercadolivre.com/sec/1fnTmoz" 
+            },
+            { 
+                id: 4, 
+                name: "Óculos Dark Vision", 
+                desc: "Proteção UV400, armação acetato.", 
+                price: 149.90, 
+                img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80", 
+                link: "https://mercadolivre.com/sec/1WzZ6QN" 
+            },
+            { 
+                id: 5, 
+                name: "Kit Streetwear", 
+                desc: "Camiseta Oversized + Boné 5Panel.", 
+                price: 129.90, 
+                img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80", 
+                link: "#" 
+            },
+            { 
+                id: 6, 
+                name: "Mochila Tech Pro", 
+                desc: "Compartimento para notebook 15', impermeável.", 
+                price: 329.90, 
+                img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", 
+                link: "https://mercadolivre.com/sec/1Km8sDx" 
+            }
+        ];
+
         // --- NAVEGAÇÃO ---
         function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
@@ -193,15 +204,13 @@ sese<!DOCTYPE html>
             window.scrollTo(0,0);
         }
 
-        // --- AÇÃO DE COMPRA (REDIRECIONAMENTO DIRETO) ---
+        // --- AÇÃO DE COMPRA ---
         function buyProduct(id) {
             const product = products.find(p => p.id === id);
-            
-            if (product && product.link) {
-                // Redireciona para o link do produto (abre em nova aba)
+            if (product && product.link && product.link !== "#") {
                 window.open(product.link, '_blank');
             } else {
-                alert("Link de compra não configurado para este produto.");
+                alert("Link de compra não configurado ou indisponível.");
             }
         }
 
